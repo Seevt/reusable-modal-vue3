@@ -16,7 +16,17 @@ const props = defineProps({
         type: Boolean,
         default: false,
     },
+    defaultPosition: {
+        type: Boolean,
+        default: false,
+    }
 })
+
+// needs single quotes
+const position = {
+    display: props.defaultPosition ? 'grid' : '',
+    placeItems: props.defaultPosition ? 'center' : '',
+}
 
 </script>
 
@@ -77,7 +87,7 @@ const props = defineProps({
 
     background: rgba(0, 0, 0, 0.2);
 
-    display: grid;
-    place-items: center;
+    display: v-bind('position.display');
+    place-items: v-bind("position.placeItems");
 }
 </style>
