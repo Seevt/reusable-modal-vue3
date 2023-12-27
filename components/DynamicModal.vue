@@ -88,6 +88,6 @@ const position = {
     background: rgba(0, 0, 0, 0.2);
 
     display: v-bind('position.display');
-    place-items: v-bind("position.placeItems");
+    place-items: v-bind('position.placeItems');
 }
 </style>
