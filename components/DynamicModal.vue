@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import { type PropType, type CSSProperties } from 'vue';
 import type { ModalController } from '../composables/useModal'
 
 
@@ -19,22 +19,39 @@ const props = defineProps({
     defaultPosition: {
         type: Boolean,
         default: false,
+    },
+    styling: {
+        type: Object as PropType<CSSProperties>,
     }
 })
 
-// needs single quotes
-const position = {
+
+
+const __modal_outer_background: CSSProperties = {
+    position: "fixed",
+    left: 0,
+    top: 0,
+
+    zIndex: 500,
+
+    width: "100vw",
+    height: "100vh",
+
+    background: "rgba(0, 0, 0, 0.2)",
+
     display: props.defaultPosition ? 'grid' : '',
     placeItems: props.defaultPosition ? 'center' : '',
-}
 
+    ...props.styling
+
+}
 </script>
 
 <template>
     <Teleport to="body">
         <Transition name="__outer-fade">
             <div role="dialog" aria-modal="true" @click.self="props.closeOnBackground ? props.controller.close() : null"
-                v-show="props.controller.show.value" class="__modal-outer-background">
+                v-show="props.controller.show.value" :style="__modal_outer_background">
                 <template v-if="!customTransition">
                     <Transition name="__inner-transition">
                         <slot v-if="props.controller.show.value" />
@@ -73,21 +90,5 @@ const position = {
 .__inner-transition-leave-active {
 
     transition: 0.25s ease all;
-}
-
-.__modal-outer-background {
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    z-index: 500;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: rgba(0, 0, 0, 0.2);
-
-    display: v-bind('position.display');
-    place-items: v-bind('position.placeItems');
 }
 </style>
