@@ -22,6 +22,10 @@ const props = defineProps({
     },
     styling: {
         type: Object as PropType<CSSProperties>,
+    },
+    teleport: {
+        type: String,
+        default: 'body'
     }
 })
 
@@ -48,7 +52,7 @@ const __modal_outer_background: CSSProperties = {
 </script>
 
 <template>
-    <Teleport to="body">
+    <Teleport :to="props.teleport">
         <Transition name="__outer-fade">
             <div role="dialog" aria-modal="true" @click.self="props.closeOnBackground ? props.controller.close() : null"
                 v-show="props.controller.show.value" :style="__modal_outer_background">
