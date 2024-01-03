@@ -30,9 +30,6 @@ const props = defineProps({
     }
 })
 
-
-
-
 const __modal_outer_background = computed<CSSProperties>(() => {
     return {
 
@@ -54,14 +51,14 @@ const __modal_outer_background = computed<CSSProperties>(() => {
 
     }
 });
-
 </script>
 
 <template>
     <Teleport :to="props.teleport">
         <Transition name="__outer-fade">
-            <div role="dialog" aria-modal="true" @click.self="props.closeOnBackground ? props.controller.close() : null"
-                v-show="props.controller.show.value" :style="__modal_outer_background">
+            <div role="dialog" aria-modal="true" tabindex="-1"
+                @click.self="props.closeOnBackground ? props.controller.close() : null" v-show="props.controller.show.value"
+                :style="__modal_outer_background">
                 <template v-if="!customTransition">
                     <Transition name="__inner-transition">
                         <slot v-if="props.controller.show.value" />
