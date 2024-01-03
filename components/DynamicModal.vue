@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type PropType, type CSSProperties } from 'vue';
+import { computed } from 'vue'
+import type { PropType, CSSProperties } from 'vue';
 import type { ModalController } from '../composables/useModal'
 
 
@@ -31,24 +32,29 @@ const props = defineProps({
 
 
 
-const __modal_outer_background: CSSProperties = {
-    position: "fixed",
-    left: 0,
-    top: 0,
 
-    zIndex: 500,
+const __modal_outer_background = computed<CSSProperties>(() => {
+    return {
 
-    width: "100vw",
-    height: "100vh",
+        position: "fixed",
+        left: 0,
+        top: 0,
 
-    background: "rgba(0, 0, 0, 0.2)",
+        zIndex: 500,
 
-    display: props.defaultPosition ? 'grid' : '',
-    placeItems: props.defaultPosition ? 'center' : '',
+        width: "100vw",
+        height: "100vh",
 
-    ...props.styling
+        background: "rgba(0, 0, 0, 0.2)",
 
-}
+        display: props.defaultPosition ? 'grid' : '',
+        placeItems: props.defaultPosition ? 'center' : '',
+
+        ...props.styling
+
+    }
+});
+
 </script>
 
 <template>
