@@ -20,7 +20,7 @@ Then we insert it in the template
 </template>
 ```
 
-To better handle the logic of this modal anywhere in our App without declaring a global store or drilling props, we can make use of [Vue Composables](https://vuejs.org/guide/reusability/composables.html#composables).
+To better handle the logic of this modal anywhere in our App without declaring a global store or drilling props, we can make use of  [Vue Composables](https://vuejs.org/guide/reusability/composables.html#composables).
 
 
 Within a our composables folder(or any folder where you place logic utils), create a `useModal.ts`
