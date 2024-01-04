@@ -5,7 +5,7 @@
 - Slot based
 - Customizable via props
 - A11y
-- Custom transitions to the sloted content
+- Custom transitions (slot content)
 
 ## Install
 WIP
@@ -53,7 +53,7 @@ const modal = useModal()
   <DynamicModal :controller="modal"></DynamicModal>
 </template>
 ```
-Thanks to our composable, each variable will hold a different modal instance meaning, if youw want another button opening a different modal we can just create another variable
+Thanks to our composable, each variable will hold a different modal instance meaning, if you want another button opening a different modal we can just create another variable
 
 ```vue
 <script setup lang="ts">
