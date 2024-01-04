@@ -1,8 +1,5 @@
 # Reusable/Dynamic Modal for Vue 3
 
-## Install
-WIP
-
 ## Features 
 - Teleport based
 - Slot based
@@ -10,7 +7,10 @@ WIP
 - A11y
 - Custom transitions to the sloted content
 
-## Usage
+## Install
+WIP
+
+## Basic setup
 First ... (WIP)
 
 Then we insert it in the template
@@ -72,13 +72,14 @@ Now that we have our basic setup ready, let's see the props available to manage 
 
 | Name                  | Type       | Default    | Description                                         |
 | --------              | ---------- | ---------- | --------------------------------------------------- |
-| controller (required) | `Object`   | `undefined`| The modal expects the composable object returned from `useModal.ts` to handle logic |
+| controller **(required)** | `Object`   | `undefined`| The modal expects the composable object returned from `useModal.ts` to handle logic |
 | teleport              | `String`   | `body`     | This will allow us to select any teleport location, if not declared, it will automatically teleport the modal to our `document.body` |
 | defaultPosition       | `Boolean`  | `false`    | By default the modal has no set position, if we want to quickly center our modal we can pass this prop | 
 | closeOnBackground     | `Boolean`  | `false`    | Sometimes we want to be able to close modals by clickin outside of our container. Setting this option to true will allow us to do just that! |
 | customTransition      | `Boolean`  | `false`    | By default the sloted content will have a `CSS scale()` animation. To disable this animation or create a custom one, enable this option |
 | styling               | `Object`   | `{}`       | The modal comes with some default styles declared, to customize it, pass any css properties via the styling object `:styling="{ display: 'grid', placeItems: 'center', background: 'transparent' }"` |
 
-
+## Usage examples
+WIP
 
 
