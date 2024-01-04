@@ -1,4 +1,4 @@
-# Reusable/Dynamic Modal for Vue 3
+# Reusable Modal Component for Vue 3
 
 ## Features 
 - Teleport based
