@@ -40,7 +40,7 @@ const __modal_outer_background = computed<CSSProperties>(() => {
         zIndex: 500,
 
         width: "100vw",
-        height: "100vh",
+        height: "100svh",
 
         background: "rgba(0, 0, 0, 0.2)",
 
