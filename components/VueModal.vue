@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onUnmounted } from 'vue'
 import type { PropType, CSSProperties } from 'vue';
 import type { ModalController } from '../composables/useModal'
 
@@ -28,6 +28,10 @@ const props = defineProps({
     teleport: {
         type: String,
         default: 'body'
+    },
+    disableUnmount: {
+        type: Boolean,
+        default: false,
     }
 })
 
@@ -52,6 +56,11 @@ const __modal_outer_background = computed<CSSProperties>(() => {
 
     }
 });
+
+onUnmounted(() => {
+    if (props.disableUnmount) return
+    props.controller.close()
+})
 </script>
 
 <template>
