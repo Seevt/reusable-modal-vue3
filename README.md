@@ -50,7 +50,7 @@ const modal = useModal()
 </script>
 
 <template>
-  <DynamicModal :controller="modal"></DynamicModal>
+  <VueModal :controller="modal"></VueModal>
 </template>
 ```
 Thanks to our composable, each variable will hold a different modal instance meaning, if you want another button opening a different modal we can just create another variable
