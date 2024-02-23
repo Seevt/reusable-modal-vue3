@@ -16,7 +16,7 @@ First ... (WIP)
 Then we insert it in the template
 ```vue
 <template>
-  <DynamicModal></DynamicModal>
+  <VueModal></VueModal>
 </template>
 ```
 
